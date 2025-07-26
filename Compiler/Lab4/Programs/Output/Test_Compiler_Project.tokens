@@ -1,0 +1,9 @@
+Bool_Literal=4
+Char_Literal=5
+Digit=6
+Letter=7
+Operator=8
+Return_Type=9
+String_Literal=10
+Visibility_Specifier=11
+WS=12

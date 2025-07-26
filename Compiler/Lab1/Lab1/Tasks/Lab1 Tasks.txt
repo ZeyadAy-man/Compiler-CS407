@@ -1,0 +1,24 @@
+Antlr Lab1 Task
+******************
+Write an ANTLR grammar to recognise the following statements:
+
+Declarations
+-------------
+1-int x =2; 
+2-double x=3.5; 
+3-int x,y ; 
+4-int x=y+z;  int x=y-z; int x=y*z;   int x=y/z;
+ 
+if..else statements
+--------------------
+if(x>1){
+//declarations from above
+       } 
+(optional)
+else{
+//declarations from above
+    }
+
+Comments
+---------
+// single line comments

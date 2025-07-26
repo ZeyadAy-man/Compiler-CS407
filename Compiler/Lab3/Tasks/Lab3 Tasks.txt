@@ -1,0 +1,41 @@
+Write an ANTLR grammar that recognizes the following language:
+**************************************************************
+
+1] Define the rules decl, ifstmt, whilestmt, forloop, and assignstmt.
+2] Define the rule:
+	stmt: decl | ifstmt | whilestmt | forloop | assignstmt ;
+
+such that the ifstmt, whilestmt, and forloop statements could contain any type of statements (for example, we can have nested loops, a loop inside an if statement,...).
+
+---------------------------------------------------------------------
+Test your grammar to recognize the following (nested statements):
+
+[1]
+while(x>1){
+x=7;
+}
+
+[2]
+for(int x=1 ; x<5 ; x++){
+while(x!=3){
+x = x * 1;
+}
+}
+
+[3]
+for (int x=10 ; x>0 ; x--) // for-loop
+{
+double y = x * z - 1.5 ; // declaration
+x = y * 3 ; // assignment statement
+while (x > y) // while-loop
+{
+ if (x == 2.345) // if-else statement
+{
+ x += 1 ;
+}
+else 
+{
+x += 2 ;
+}
+}
+}
