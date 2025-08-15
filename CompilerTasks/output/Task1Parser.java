@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g 2025-07-24 00:42:25
+// $ANTLR 3.4 C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g 2025-07-30 15:11:52
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class Task1Parser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ArithmaticOperators", "DoubleValue", "ID", "IntValue", "WS", "'('", "')'", "'cos'", "'sin'", "'tan'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ArithmaticOperators", "DoubleValue", "ID", "IntValue", "WS", "'('", "')'", "'.com'", "'0'", "'9'", "':'", "'@'", "'cos'", "'phone'", "'sin'", "'tan'"
     };
 
     public static final int EOF=-1;
@@ -17,6 +17,12 @@ public class Task1Parser extends Parser {
     public static final int T__11=11;
     public static final int T__12=12;
     public static final int T__13=13;
+    public static final int T__14=14;
+    public static final int T__15=15;
+    public static final int T__16=16;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int T__19=19;
     public static final int ArithmaticOperators=4;
     public static final int DoubleValue=5;
     public static final int ID=6;
@@ -74,41 +80,26 @@ public class Task1Parser extends Parser {
 
 
     // $ANTLR start "arithmaticExpression"
-    // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:5:1: arithmaticExpression : ( ( number ( ArithmaticOperators arithmaticExpression )? ) | ( '(' arithmaticExpression ')' ) |);
+    // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:5:1: arithmaticExpression : ( ( number ( ArithmaticOperators arithmaticExpression )? ) | ( '(' arithmaticExpression ')' ) );
     public final void arithmaticExpression() throws RecognitionException {
         try {
-            // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:5:21: ( ( number ( ArithmaticOperators arithmaticExpression )? ) | ( '(' arithmaticExpression ')' ) |)
-            int alt2=3;
-            switch ( input.LA(1) ) {
-            case DoubleValue:
-            case ID:
-            case IntValue:
-            case 11:
-            case 12:
-            case 13:
-                {
+            // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:5:21: ( ( number ( ArithmaticOperators arithmaticExpression )? ) | ( '(' arithmaticExpression ')' ) )
+            int alt2=2;
+            int LA2_0 = input.LA(1);
+
+            if ( ((LA2_0 >= DoubleValue && LA2_0 <= IntValue)||LA2_0==16||(LA2_0 >= 18 && LA2_0 <= 19)) ) {
                 alt2=1;
-                }
-                break;
-            case 9:
-                {
+            }
+            else if ( (LA2_0==9) ) {
                 alt2=2;
-                }
-                break;
-            case EOF:
-            case 10:
-                {
-                alt2=3;
-                }
-                break;
-            default:
+            }
+            else {
                 NoViableAltException nvae =
                     new NoViableAltException("", 2, 0, input);
 
                 throw nvae;
 
             }
-
             switch (alt2) {
                 case 1 :
                     // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:5:23: ( number ( ArithmaticOperators arithmaticExpression )? )
@@ -173,11 +164,6 @@ public class Task1Parser extends Parser {
 
                     }
                     break;
-                case 3 :
-                    // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:5:112: 
-                    {
-                    }
-                    break;
 
             }
         }
@@ -217,9 +203,9 @@ public class Task1Parser extends Parser {
                 alt3=3;
                 }
                 break;
-            case 11:
-            case 12:
-            case 13:
+            case 16:
+            case 18:
+            case 19:
                 {
                 alt3=4;
                 }
@@ -239,7 +225,7 @@ public class Task1Parser extends Parser {
                     // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:6:10: ( IntValue )
                     // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:6:11: IntValue
                     {
-                    match(input,IntValue,FOLLOW_IntValue_in_number48); 
+                    match(input,IntValue,FOLLOW_IntValue_in_number45); 
 
                     }
 
@@ -249,7 +235,7 @@ public class Task1Parser extends Parser {
                 case 2 :
                     // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:6:23: ID
                     {
-                    match(input,ID,FOLLOW_ID_in_number53); 
+                    match(input,ID,FOLLOW_ID_in_number50); 
 
                     }
                     break;
@@ -259,7 +245,7 @@ public class Task1Parser extends Parser {
                     // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:6:28: ( DoubleValue )
                     // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:6:29: DoubleValue
                     {
-                    match(input,DoubleValue,FOLLOW_DoubleValue_in_number58); 
+                    match(input,DoubleValue,FOLLOW_DoubleValue_in_number55); 
 
                     }
 
@@ -272,21 +258,21 @@ public class Task1Parser extends Parser {
                     // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:6:43: ( triagnometricFunctions '(' arithmaticExpression ')' )
                     // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:6:44: triagnometricFunctions '(' arithmaticExpression ')'
                     {
-                    pushFollow(FOLLOW_triagnometricFunctions_in_number63);
+                    pushFollow(FOLLOW_triagnometricFunctions_in_number60);
                     triagnometricFunctions();
 
                     state._fsp--;
 
 
-                    match(input,9,FOLLOW_9_in_number65); 
+                    match(input,9,FOLLOW_9_in_number62); 
 
-                    pushFollow(FOLLOW_arithmaticExpression_in_number67);
+                    pushFollow(FOLLOW_arithmaticExpression_in_number64);
                     arithmaticExpression();
 
                     state._fsp--;
 
 
-                    match(input,10,FOLLOW_10_in_number69); 
+                    match(input,10,FOLLOW_10_in_number66); 
 
                     }
 
@@ -317,7 +303,7 @@ public class Task1Parser extends Parser {
             // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:10:23: ( 'sin' | 'cos' | 'tan' )
             // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:
             {
-            if ( (input.LA(1) >= 11 && input.LA(1) <= 13) ) {
+            if ( input.LA(1)==16||(input.LA(1) >= 18 && input.LA(1) <= 19) ) {
                 input.consume();
                 state.errorRecovery=false;
             }
@@ -342,6 +328,105 @@ public class Task1Parser extends Parser {
     }
     // $ANTLR end "triagnometricFunctions"
 
+
+
+    // $ANTLR start "phoneAttr"
+    // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:13:1: phoneAttr : 'phone' ':' ( '0' .. '9' )+ ;
+    public final void phoneAttr() throws RecognitionException {
+        try {
+            // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:13:10: ( 'phone' ':' ( '0' .. '9' )+ )
+            // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:13:12: 'phone' ':' ( '0' .. '9' )+
+            {
+            match(input,17,FOLLOW_17_in_phoneAttr177); 
+
+            match(input,14,FOLLOW_14_in_phoneAttr179); 
+
+            // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:13:24: ( '0' .. '9' )+
+            int cnt4=0;
+            loop4:
+            do {
+                int alt4=2;
+                int LA4_0 = input.LA(1);
+
+                if ( () ) {
+                    alt4=1;
+                }
+
+
+                switch (alt4) {
+            	case 1 :
+            	    // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:
+            	    {
+            	    if (  ) {
+            	        input.consume();
+            	        state.errorRecovery=false;
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        throw mse;
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt4 >= 1 ) break loop4;
+                        EarlyExitException eee =
+                            new EarlyExitException(4, input);
+                        throw eee;
+                }
+                cnt4++;
+            } while (true);
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return ;
+    }
+    // $ANTLR end "phoneAttr"
+
+
+
+    // $ANTLR start "emailAttr"
+    // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:14:1: emailAttr : ID '@' ID '.com' ;
+    public final void emailAttr() throws RecognitionException {
+        try {
+            // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:14:10: ( ID '@' ID '.com' )
+            // C:\\Users\\zizoa\\Desktop\\CompilerTasks\\Task1.g:14:12: ID '@' ID '.com'
+            {
+            match(input,ID,FOLLOW_ID_in_emailAttr192); 
+
+            match(input,15,FOLLOW_15_in_emailAttr194); 
+
+            match(input,ID,FOLLOW_ID_in_emailAttr196); 
+
+            match(input,11,FOLLOW_11_in_emailAttr198); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return ;
+    }
+    // $ANTLR end "emailAttr"
+
     // Delegated rules
 
 
@@ -349,17 +434,23 @@ public class Task1Parser extends Parser {
 
     public static final BitSet FOLLOW_arithmaticExpression_in_run10 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_number_in_arithmaticExpression19 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_ArithmaticOperators_in_arithmaticExpression22 = new BitSet(new long[]{0x0000000000003AE0L});
+    public static final BitSet FOLLOW_ArithmaticOperators_in_arithmaticExpression22 = new BitSet(new long[]{0x00000000000D02E0L});
     public static final BitSet FOLLOW_arithmaticExpression_in_arithmaticExpression24 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_9_in_arithmaticExpression32 = new BitSet(new long[]{0x0000000000003EE0L});
+    public static final BitSet FOLLOW_9_in_arithmaticExpression32 = new BitSet(new long[]{0x00000000000D02E0L});
     public static final BitSet FOLLOW_arithmaticExpression_in_arithmaticExpression34 = new BitSet(new long[]{0x0000000000000400L});
     public static final BitSet FOLLOW_10_in_arithmaticExpression36 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IntValue_in_number48 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_number53 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DoubleValue_in_number58 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_triagnometricFunctions_in_number63 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_number65 = new BitSet(new long[]{0x0000000000003EE0L});
-    public static final BitSet FOLLOW_arithmaticExpression_in_number67 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_10_in_number69 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IntValue_in_number45 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_number50 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DoubleValue_in_number55 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_triagnometricFunctions_in_number60 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_9_in_number62 = new BitSet(new long[]{0x00000000000D02E0L});
+    public static final BitSet FOLLOW_arithmaticExpression_in_number64 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_10_in_number66 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_phoneAttr177 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_phoneAttr179 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_ID_in_emailAttr192 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_emailAttr194 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_ID_in_emailAttr196 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_11_in_emailAttr198 = new BitSet(new long[]{0x0000000000000002L});
 
 }

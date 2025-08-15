@@ -1,12 +1,14 @@
 grammar Values;
 
-run	:	stmts;
+run	:	stmts+;
 
-stmts	:	ifStmt | numberDeclarations | whileStmt | dowhileStmt | forStmt | assignmentStmt | booleanDeclarations;
+stmts	:	ifStmt | numberDeclarations | whileStmt | dowhileStmt | forStmt | assignmentStmt | booleanDeclarations | comment;
 
 body	:	'{' (stmts)* '}';
 
-//functionBody:	'{' (stmts)* 'return' value '}';
+functionStmt:	functionDeclaration functionBody;
+
+functionBody:	'{' (stmts)* ('return' (fullBooleanExpressions | numberExpression) ';')? '}';
 
 functionDeclaration:	modifiers? 'static'? functionReturnType ID '(' ')' ;
 
@@ -26,9 +28,10 @@ if	:	'if' '(' fullBooleanExpressions ')';
 
 fullBooleanExpressions:	  (booleanExpressions (LogicalOperators booleanExpressions)*);
 
-booleanExpressions:	(numberExpression ComparisonOperators numberExpression) | booleanValue;
+//change the first parser from numberExpression to number!
+booleanExpressions:	(number ComparisonOperators numberExpression) | booleanValue;
 
-numberDeclarations:	('int' | 'double') ID '='   numberExpression  (ArithmaticOperators  numberExpression )* ';';
+numberDeclarations:	('int' | 'double') ID (('=' numberExpression  (ArithmaticOperators  numberExpression )*) | (',' ID)*) ';';
 
 booleanDeclarations:	'boolean' ID '=' fullBooleanExpressions ';';
 
@@ -38,13 +41,14 @@ number	:	IntValue | DoubleValue | ID ;
 
 assignmentStmt:		ID (AssignmentAutoOperators | (AssignmentOperators number) );
 
-//value	:	booleanExpressions | numberExpression;
+comment	:	Comment;
 
 ID:	(('a'..'z'|'A'..'Z'|'_'|'$')('0'..'9')*)+;
 IntValue:	('0'..'9')+;
 DoubleValue:	IntValue '.' IntValue;
 StringValue:	'\"'.*'\"';
 CharValue:	'\''.?'\'';
+Comment	:	'//' (.)* '\n';
 booleanValue:	'true' | 'false';
 	
 WS:	(' '|'\n'|'\r'|'\t')+{skip();};	
